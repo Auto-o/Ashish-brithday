@@ -1,1 +1,177 @@
-<style omitted for brevity - same as user provided></style>
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  color: white;
+  padding: 30px 0;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.poem {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin: 30px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-family: 'Patrick Hand', cursive;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.special-paragraphs p {
+  font-family: 'Patrick Hand', cursive;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 20px auto;
+  max-width: 700px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin: 30px 0;
+}
+
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.gift-container {
+  margin: 40px auto;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.gift-box {
+  width: 100%;
+  height: 100%;
+  background: #e84393;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transform-style: preserve-3d;
+}
+
+.gift-box::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background: #fdcb6e;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.gift-box::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #fdcb6e;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.gift-lid {
+  width: 200px;
+  height: 50px;
+  background: #fd79a8;
+  border-radius: 10px 10px 0 0;
+  position: absolute;
+  top: -50px;
+  left: 0;
+  transform-origin: bottom center;
+  transition: transform 0.5s ease;
+  z-index: 2;
+}
+
+.gift-message {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.5s ease 0.3s;
+  z-index: 1;
+  font-size: 0.9rem;
+}
+
+.gift-box.open .gift-lid {
+  transform: rotateX(180deg);
+}
+
+.gift-box.open .gift-message {
+  opacity: 1;
+  transform: scale(1);
+}
+
+footer {
+  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  .poem, .special-paragraphs p {
+    padding: 15px;
+  }
+  }
